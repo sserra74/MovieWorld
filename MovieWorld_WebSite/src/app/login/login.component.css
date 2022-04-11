@@ -1,0 +1,137 @@
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  overflow: hidden;
+
+
+}
+
+.title {
+
+  color: #444;
+  font-size: 2.4rem;
+}
+
+i {
+  color: #dad8d8;
+}
+
+
+.input-field {
+  position: relative;
+  margin-top: 2%;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  background-color: #dddddd;
+  border-radius: 50px;
+  width: 20em;
+  height: 55px;
+  border: none;
+
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  transition: 0.5s;
+  font-size: 1.1rem;
+
+  transition: 0.5s;
+}
+
+.input-field input {
+
+  border: none;
+  border-radius: 40px;
+  background-color: #dad8d8;
+  outline: none;
+
+
+}
+
+
+
+
+.login {
+
+  min-height: 330px;
+  ;
+  height: fit-content;
+}
+
+.login>title {}
+
+#title {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  margin-top: 4%;
+}
+
+button {}
+
+#error {
+  color: red;
+}
+
+#successRegistration {
+  color: green;
+}
+
+#loginButton {
+  margin-top: 2%;
+ 
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+}
+
+#loginSuccess
+{
+  color:red;
+}
+
+@media all and (max-width: 539px) {
+  .input-field {
+    position: relative;
+    margin-top: 8%;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    background-color: #dddddd;
+    border-radius: 50px;
+    width: 20em;
+    height: 55px;
+    border: none;
+
+  }
+
+  #loginButton {
+    margin-top: 8%;
+    margin-bottom: 5%;
+    ;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  #content {
+    padding-top: 10%;
+  }
+
+  .login {
+
+    min-height: 400px;
+    height: fit-content;
+  }
+
+  #title {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+
+  }
+}

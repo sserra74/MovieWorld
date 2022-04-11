@@ -1,0 +1,93 @@
+
+@media all and (max-width: 539px)
+{
+    footer
+    {
+        background-color: #dddddd;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .row
+    {
+        
+        padding-left: 2%;
+        flex: 0 0 33.333333%;
+        padding-top:2%;
+    }
+    b{
+        font-size:1em;
+    }
+
+    a{
+        font-size: 1em;
+    }
+
+    
+}
+
+@media all and (min-width: 540px)
+{
+    footer
+    {
+        background-color: #dddddd;
+        overflow: hidden;
+      
+     
+       
+    }
+    
+    .row
+    {  
+        padding-left: 10%; 
+        padding-top:2%;
+
+    }
+
+    .col-xl-4
+    {
+        flex: 0 0 33.333333%;
+        
+    }
+   
+   
+
+}
+footer li
+{
+    list-style: none;
+}
+
+ul{
+    padding: 0;
+}
+b{
+   
+    cursor: pointer;
+  
+}
+
+.col-xl-12{
+    word-wrap: normal;
+    text-align: center;
+}
+a
+{
+    
+    text-decoration: none;
+    color:rgb(116, 115, 115);
+    font-family: 'myriad pro regular';
+   
+}
+
+a:hover
+{
+    color:rgb(12, 12, 12);
+}
+
+.fas.fa-angle-up, .fas.fa-angle-down
+{
+    margin-left:2%;
+   
+}

@@ -1,0 +1,577 @@
+
+/*-----------------------------------------------------Slide--------------------------------------------------------*/
+
+
+
+@media all and (min-width: 1025px){
+
+
+    #lastMovies:not(.badge.bg-primary){
+    
+        height: 20vw;
+  
+        display: flex;
+        flex-direction: column;
+       
+        background-color: #3d6076;
+        box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+    /* background-color: #313D5A;*/
+    /* background-color: #eeeeee;*/
+    }
+    #lastMovies :nth-child(n+1)
+    {
+        justify-content: center;  
+        
+    }
+    #containerLastFilm{
+        
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; 
+    
+       height: 100%;;
+    }
+    .customCard
+    {
+     
+        height:70%;
+        margin-top:2%;
+        width: 8vw;
+        margin-left: 1%;
+        box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 0 10px 20px; 
+      
+    
+    }
+
+    .customCard>img:hover
+    {
+        transform: scale(1.5);
+        cursor: pointer;
+    }
+
+    .customCard>img{
+
+        height: 100%;
+        
+       
+        width: 100%;
+        border-radius: 0 10px 20px; 
+        transition: transform .2s;
+        
+    }
+
+  
+
+
+    #title
+    {
+        /*color:#3d6076*/
+    
+        color: white;
+        text-align:center;
+        width: 100%;
+        background-color: #3d6076;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+
+    #title>h2{
+        font-size: 1.6em;
+    }
+
+    .sectionCatalogue
+    {
+    /* display: flex;
+        flex-direction: row;*/
+        background-color: #eeeeee;
+        
+    }
+    .container
+    {
+
+        flex-basis: 20%;
+    
+    }
+
+   
+
+    #filter
+    {
+        color:white;
+        background-color: #eeeeee;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-bottom: 3%;
+        box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+        float: left;
+        width:20%;
+        
+    
+    }
+
+    #filterText
+    {
+        margin-left: auto ;
+        margin-right: auto;
+        padding-top:4%;
+        color: #202328;
+    }
+
+    hr{
+        color: #202328
+    }
+
+    form
+    {
+    }
+    .card-body
+    {
+        background-color: white;
+        
+    }
+
+    .btn-outline-primary
+    {
+        border: 1px solid;
+        border-radius: 5px;
+        width: 100%;
+        color:#202328;
+        height: 60%;
+        font-size: 0.9em;
+        text-align: left;;
+        padding-top:-3%;
+        font-weight: bold;
+        width:100%;
+        
+        
+    }
+    .btn-outline-primary>*
+    {
+        margin-top:-3%;
+        height: fit-content;
+        color:white;
+    
+    }
+
+   
+
+    p :nth-child(n+1){
+        margin-top:10%;
+    }
+
+
+    #organizeFilter
+    {
+        display: flex;
+        flex-direction: column;
+    }
+
+   
+
+    #movieInCatalogue
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+            background-color: #eeeeee;
+    
+        height: 100%;;
+        margin-left: -30%;
+        padding-top: 4%;
+        padding-bottom: 5%;
+        min-height: 1030px;
+    /* box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);*/
+    }
+
+    .customCardCatalog
+    {
+    
+        
+    
+        width: 12em;
+        height: 100%;;
+        box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 0 10px 20px; 
+        z-index:2;
+        flex-basis: 20%;
+        margin-top:2%;
+        margin-left: 4%;
+        display: flex;
+        flex-direction: column;
+        
+
+    }
+
+    .customCardCatalog>img{
+
+        height: 76%;
+        
+        max-height: 285.71px;
+        min-height: 264.09px;
+        max-width: 200px;
+        width: 92%;
+        border-radius: 0 10px 20px; 
+        transition: transform .2s;
+        margin:auto;
+        margin-top: 4%;
+    }
+    #title
+    {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.8em;
+        /*text-transform: uppercase;*/
+        font-weight: bold;
+        border-radius: 5px;
+    /* width: 70%;*/
+    width: 100%;;
+        margin-top:2%;
+    }
+
+    
+    #pages{
+        position: absolute;
+        right: 3%;
+        margin-top:-3%;
+    }
+
+
+    
+
+    #reset{
+       height: 5em;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    
+
+    .btn-primary
+    {
+        width:8em;
+        margin-top:20%;
+    }
+
+    #searchBar
+    {
+       position: absolute;
+        height: fit-content;
+       
+        margin-top:-3%;
+        z-index: 2;
+    }
+    #searchBar>input
+    {
+        border: 1px solid rgb(143, 141, 141);
+        border-radius: 10px;
+        margin-left: 70%;
+        background-color:#eeeeee;
+        width:28em;
+        outline-color:#3d6076;
+        
+    }
+
+    #searchBar>input::placeholder{
+        color: #3d6076;
+        font-weight: 470;
+    }
+
+    #notFound
+    {
+        margin: 0;
+        position: absolute;
+        top: 110%;
+       left:42%;
+        width:fit-content;
+        height: fit-content;
+    }
+
+   
+
+
+}
+
+
+@media all and (max-width: 539px) { 
+    
+    #lastMovies{
+    
+        height: 74vw;
+        padding-top: 5%;
+       
+        background-color: #3d6076;
+        box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+        /* background-color: #313D5A;*/
+        /* background-color: #eeeeee;*/
+        }
+
+        hr{
+            margin-top: -3%;
+            color:black;
+        }
+        
+    
+        .customCard
+        {
+        
+           
+            width: max-content;
+            margin-left: 32%;
+         
+            box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 0 10px 20px; 
+        }
+    
+        
+        .customCard>img{
+
+            height: 12em;
+            border-radius: 0 10px 20px; 
+        }
+        .swiper
+        {
+            height: 14em;
+        }
+
+        #containerLastFilm{
+        
+           
+            height: 100%;;
+        }
+
+        #containerLastFilm>img{
+            padding-left: auto;
+            padding-right: auto;
+            max-height: 12em;
+        }
+
+        #filter
+        {
+            color:white;
+            background-color: #eeeeee;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding-bottom: 3%;
+            box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+        
+        
+            
+        
+        }
+        #title
+        {
+            margin-left: 16%;
+           
+            /*text-transform: uppercase;*/
+            font-weight: bold;
+            border-radius: 5px;
+            color:black;
+            width: fit-content;;
+            margin-top:2%;
+        }
+        #title>h2{
+            margin-top:4%;
+            font-size: 0.8em;
+        }
+    
+        #filterText
+        {
+          
+            padding-top:4%;
+            color: #202328;
+        }
+
+       .filterBox
+        {
+            width:fit-content;
+            margin-top: 2%;
+        }    
+        .sectionCatalogue
+        {
+          display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            background-color: #eeeeee;
+            
+        }
+
+        .btn-outline-primary
+        {
+            border: 1px solid;
+            border-radius: 5px;
+            width:22.4em;
+            color:#202328;
+            height: 40%;
+            font-size: 0.9em;
+            text-align: left;;
+            padding-top:-3%;
+            font-weight: bold;
+          
+            
+        }
+        .btn-outline-primary>*
+        {
+            margin-top:-3%;
+            height: fit-content;
+            color:black;
+        
+        }
+
+    p{
+        width:fit-content;
+    }
+   
+    #movieInCatalogue
+    {
+        display: flex;
+        flex-direction: column;
+       
+        justify-content: flex-start;
+        background-color: #eeeeee;
+    
+        height: 100%;;
+     margin-left:auto;
+     margin-right: auto;
+        margin-top: 4%;
+        margin-bottom: 5%;
+     
+    /* box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);*/
+    }
+
+    .customCardCatalog
+    {
+    
+        width: fit-content;
+        height: 100%;;
+        box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 0 10px 20px; 
+        z-index:2;
+        flex-basis: 20%;
+        margin-top:4%;
+       padding-left: 2%;
+       margin-right: 3%;
+        display: flex;
+        flex-direction: row;
+        width:366.16px;
+    }
+
+    .customCardCatalog>img{
+
+        
+        
+        max-height: 200.71px;
+      
+        max-width: 200px;
+      
+        border-radius: 0 10px 20px; 
+        transition: transform .2s;
+       padding:2%
+    }
+
+    #additionalInfo
+    {
+        margin-left:auto;
+        margin-right: auto;
+    }
+
+    #pages
+    {
+       
+        margin-top: 4%;
+        margin-left: 78%;
+    }
+
+    #searchBar
+    {
+       position: absolute;
+        height: 20em;
+       
+        margin-top:-5.5%;
+        z-index: 2;
+    }
+    #searchBar>input
+    {
+        border: 1px solid rgb(143, 141, 141);
+        border-radius: 10px;
+       
+        margin-bottom: 5%;
+        margin-left: 2%;
+        background-color:#eeeeee;
+        width:22em;
+        outline-color:#3d6076;
+        
+    }
+
+    #searchBar>input::placeholder{
+        color: #3d6076;
+        font-weight: 470;
+    }
+   
+}
+
+label{
+    color:black;
+    font-size: 0.84em;
+}
+
+hr{
+    margin-top:-3%;
+}
+ul{
+    width: 100%;;
+    display: block;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 110px;
+    cursor: pointer;
+
+}
+
+li>*{
+    cursor: pointer;
+
+}
+ul li:hover{
+    
+background-color: #d8d9da;
+
+}
+
+#avaiableInfo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 4%;
+    padding-top: 4%;
+    padding-bottom: 3%;;
+    font-size: 0.8em;
+    justify-content: space-around;
+}
+
+
+#titleSlide{
+    color:white;
+    text-align: center;;
+}
+
+.fas.fa-angle-up, .fas.fa-angle-down
+{
+    color:black;
+    margin-left: 71%;
+    margin-top: 5.6%;
+   
+}
+
+#filterLabel
+{
+    display: flex;
+    flex-direction: row;
+   
+}

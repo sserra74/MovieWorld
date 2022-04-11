@@ -1,0 +1,20 @@
+html,body{
+    height:100%;
+   }
+
+.boPanelInner
+{
+    display: flex;
+    flex-direction: row;
+   
+
+   height: 100vh;
+   width: 100vw;;
+}
+
+.boPanel
+{
+    
+    display: flex;
+    flex-direction: column;
+}

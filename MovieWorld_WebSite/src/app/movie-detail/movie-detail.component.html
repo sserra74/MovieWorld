@@ -1,0 +1,72 @@
+<div class="movie" [ngStyle]="{'background-image': 'url(' + movieClicked[0].bgimage + ')'}">
+    <div class="contentBox">
+        <div id="title"><h2>{{movieClicked[0].name}}</h2></div>
+        <div class="innerContent">
+            <img src="{{movieClicked[0].linkImg}}">
+            <div id="info">
+                <h2>{{movieClicked[0].title}}</h2>
+               
+                <div class="generalInfo">
+                    <div id="firstBlock">
+                        <span *ngFor= "let item of kind, let i = index" [ngClass]="getBadgeColor(kind[i].color)">{{kind[i].genre1}}</span>
+                        <span>2020</span>
+                        <span>{{movieClicked[0].format}}</span>
+                    </div>
+                    <div id="text">{{movieClicked[0].shortPlot}} </div>    
+                </div>
+                   
+                <div id="salesInfo">
+                    <div id="salesInfoDetail">
+                        <i class="far fa-check-circle" *ngIf="movieClicked[0].isSalable"> {{"Disponibili" | translation: labels}} {{movieClicked[0].availability}} copie</i> 
+                        <i class="fas fa-times-circle" *ngIf="!movieClicked[0].isSalable"> {{"Non Disponibile" | translation: labels}}</i> 
+                        <span>   {{"Prezzo" | translation : labels}}: {{'€' | translation : labels}}{{movieClicked[0].price}} </span>
+                    </div>
+                    <form  (click)="AddToCart(movieClicked)"><input type="button" class="btn btn-primary"  value="{{'Aggiungi nel carrello' | translation: labels}}"></form>
+                
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem *ngFor="let label of buttonTitle, let j=index">
+      <a ngbNavLink *ngIf="label.labelContent!=null" >{{label.labelContent}}</a>
+      <a ngbNavLink *ngIf="label.labelContent==null">{{label}}</a>
+     <ng-template ngbNavContent >
+       <div class="bigContainer">
+           <ng-container *ngIf="j==0">
+           <div id="containerMD_R" *ngFor="let item of movieDirectors" > <a href="{{item.linkBiography}}" target="_blank">
+                <img id="actors_movieDirectorIMG" src="{{item.img}}" *ngIf="item.role=='Regista' && j==0">
+                <div id="name" *ngIf="item.role=='Regista' && j==0"><h3>{{item.name}} {{item.surname}}</h3></div></a>
+            </div>
+           </ng-container>
+           <ng-container *ngIf="j==1">
+            <div id="containerMD_A" *ngFor="let item of movieActors" ><a href="{{item.linkBiography}}" target="_blank">
+                <img id="actors_movieDirectorIMG" src="{{item.img}}" *ngIf="item.role=='Attore' && j==1">
+                <div id="name" *ngIf="item.role=='Attore' && j==1"><h3>{{item.name}} {{item.surname}}</h3></div></a>
+                </div>
+           </ng-container>
+           <ng-container *ngIf="j==2">
+            <div id="containerMD_A" *ngFor="let item of movies" >
+                <img id="actors_movieDirectorIMG" [src]="item.img =='' ? 'assets/Images/ImageNotAvaiable.jpg' : item.img" *ngIf=" j==2">
+                <div id="name" *ngIf=" j==2"><h3>{{item.keyword}}</h3></div>
+                </div>
+               
+           </ng-container>
+
+        
+            
+        </div>
+       
+    
+    </ng-template>
+    </li>
+    
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
+
+

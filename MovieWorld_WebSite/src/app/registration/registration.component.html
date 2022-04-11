@@ -1,0 +1,59 @@
+<div class="registration">
+    <div id="title">
+        <h2>Registrazione</h2>
+    </div>
+    <form [formGroup]="registerForm" (submit)="registration(username.value,password.value,email.value)">
+        <div class="input-field">
+            <div class="input">
+                <i class="fas fa-user"></i>
+                <input #email formControlName="emailL" type="email" placeholder="Email">
+            </div>
+            <div class="textError">
+                <span id="error" *ngIf="registrationSubmitted && registerForm.controls['emailL'].errors?.['required']">Campo
+                    richiesto</span>
+                <span id="error" *ngIf="registrationSubmitted && registerForm.controls['emailL'].errors?.['email']">L'indirizzo email deve
+                    contenere la @</span>
+            </div>
+        </div>
+
+        <div class="input-field">
+            <div class="input">
+                <i class="fas fa-user"></i>
+                <input #username type="text" placeholder="Username" formControlName="username">
+            </div>
+            <div class="textError">
+                <span id="error" *ngIf="registrationSubmitted && registerForm.controls['username'].errors?.['required']">Campo
+                    richiesto</span>
+            </div>
+        </div>
+
+        <div class="input-field">
+            <div class="input">
+                <i class="fas fa-lock"></i>
+                <input #password type="password" placeholder="Password" minlength="8" formControlName="password">
+            </div>
+            <div class="textError">
+                <span  *ngIf="registrationSubmitted && registerForm.controls['password'].errors?.['required']">Campo richiesto</span>
+                <span  *ngIf="registrationSubmitted && registerForm.controls['password'].errors?.['minlength']">Inserire almeno 8 caratteri</span>
+            </div>
+        </div>
+
+
+
+        <div class="input-field">
+            <div class="input">
+                <i class="fas fa-lock"></i>
+                <input #passwordC type="password" placeholder="Conferma password" formControlName="passwordC">
+            </div>
+            <div class="textError">
+                <span  *ngIf="registrationSubmitted && registerForm.controls['passwordC'].errors?.['mismatch']">Le password non corrispondono</span>
+            </div>
+        </div>
+
+        <div id="registerButton">
+            <button  class="btn btn-primary">Registrati</button>
+            <span id="successRegistration" *ngIf="registrationSuccess">Registrazione effettuata!</span>
+        </div>
+
+    </form>
+</div>

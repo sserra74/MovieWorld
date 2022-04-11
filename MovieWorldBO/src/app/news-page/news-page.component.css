@@ -1,0 +1,76 @@
+#bold
+{
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    color: #495057;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    background-image: url('../../assets/Images/bold.png');
+    background-position: center; /* 0px 0px; */
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    width:2em;
+    background-size:40% 40%;
+}
+
+#italic
+{
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    color: #495057;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    background-image: url('../../assets/Images/italic.jpg');
+    background-position: center; /* 0px 0px; */
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    width:2em;
+    background-size:40% 40%;
+}
+
+#underline
+{
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    color: #495057;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    background-image: url('../../assets/Images/underline.png');
+    background-position: center; /* 0px 0px; */
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    width:3em;
+    background-size:60% 60%;
+}
+
+#align-right
+{
+    align-content: right;;
+}
+
+#align-left
+{
+    align-content: left;;
+}
+
+#align-justify
+{
+    align-content: justify;;
+}
+
+#bRight
+{
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    color: #495057;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    background-image: url('../../assets/Images/bold.png');
+    background-position: center; /* 0px 0px; */
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    width:2em;
+    background-size:40% 40%;
+}
+
+#page
+{
+    width:170%;
+}
+

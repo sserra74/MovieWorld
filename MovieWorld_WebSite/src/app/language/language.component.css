@@ -1,0 +1,13 @@
+img
+{
+    width: 12%;
+    height: 12%;
+}
+
+.btn-outline-primary
+{
+    background-color: none !important;
+    color:white;
+    border-color: rgba(0, 0, 0, 0);
+    margin-top: -3%;
+}

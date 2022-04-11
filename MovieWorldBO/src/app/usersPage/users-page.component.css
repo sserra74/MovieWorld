@@ -1,0 +1,35 @@
+#page
+{
+    position: relative;
+    width: 83vw;
+    left:1%;
+  
+    
+}
+
+::ng-deep .p-toolbar-group-right
+{
+    margin-right:7%;
+}
+
+#trama
+{
+    height: 10px;;
+    overflow-y: scroll;
+    
+}
+
+.product-badge.status-instock {
+    background: #C8E6C9;
+    color: #256029;
+    padding: 3px 7px;
+    font-size:0.8em;
+    font-weight: 700;
+}
+.product-badge.status-outofstock {
+    background: #FFCDD2;
+    color: #c63737;
+    padding: 3px 7px;
+    font-size:0.8em;
+    font-weight: 700;
+}

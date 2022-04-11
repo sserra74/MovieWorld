@@ -1,0 +1,350 @@
+@media all and (min-width: 1025px) {
+
+    #cart {
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4%;
+        margin-bottom: 3%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    #header {
+        background-color: #0d6efd;
+        height: fit-content;
+    }
+
+    #row {
+        width: 80%;
+        padding-left: 4%;
+    }
+
+    h2 {
+        width: 100%;
+        padding: 4%;
+
+    }
+
+    hr {
+        margin-top: -3%;
+        border-top: 1px solid rgb(0, 0, 0);
+    }
+
+
+
+    .itemInCart {
+        flex-direction: row !important;
+        height: 16vw !important;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        margin-left: 4%;
+        margin-right: 4%;
+        margin-top: 2%;
+        border-radius: 10px;
+        width: 76%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #titleImg {
+
+
+        width: 50%;
+        height: 100%;
+        background-color: yellow;
+
+    }
+
+    img {
+        max-height: 100%;
+        max-width: 180px;
+
+        height: auto;
+        width: 100%;
+        border-radius: 0 10px 20px;
+        padding-left: 4%;
+        padding: 2%;
+
+
+    }
+
+    h4 {
+
+        height: fit-content;
+
+    }
+
+    .itemInCart:last-child {
+        margin-bottom: 3%;
+    }
+
+    #info {
+
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+        width: 74%;
+
+    }
+
+    #info>hr {
+        margin-top: 1%;
+        color: rgb(131, 131, 131);
+    }
+
+    #isSalable {
+        color: green;
+    }
+
+    #price {
+        margin-top: 2%;
+    }
+
+    select {
+
+        border-radius: 10px;
+        width: 20%;
+    }
+
+    #totalPriceTemp {
+        margin-top: 4%;
+        width: 50%;
+        margin-left: 53%;
+
+    }
+
+    #totalPriceTemp>span {
+        padding-left: 16%;
+    }
+
+    #totalPrice {
+        margin-top: 4%;
+        width: 50%;
+        margin-left: auto;
+        margin-bottom: 3%;
+
+    }
+
+    #totalPrice>button {
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+
+
+
+    .modal-body {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .modal-body select {
+        margin-top: 4%;
+    }
+
+    #selectProvinceAddress {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    #selectProvinceAddress :last-child {
+        margin-left: 4%;
+        ;
+    }
+
+    #remove {
+        border-radius: 10px;
+    }
+
+}
+
+@media all and (max-width: 539px) {
+
+    #cart {
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+
+        margin-left: auto;
+        margin-right: auto;
+
+        margin-bottom: 3%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    #header {
+        background-color: #0d6efd;
+        height: fit-content;
+    }
+
+    #row {
+        width: 104%;
+        padding-left: 4%;
+    }
+
+    h2 {
+        width: 100%;
+        padding: 4%;
+
+    }
+
+    hr {
+        margin-top: -3%;
+        border-top: 1px solid rgb(0, 0, 0);
+        width: 90%;
+    }
+
+
+
+    .itemInCart {
+        flex-direction: row !important;
+        height: fit-content;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        margin-left: 4%;
+        margin-right: 4%;
+        margin-top: 2%;
+        border-radius: 10px;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #titleImg {
+
+
+        width: 50%;
+        height: 100%;
+        background-color: yellow;
+
+    }
+
+    img {
+        max-height: 100%;
+        max-width: 180px;
+
+        height: auto;
+        width: 100%;
+        border-radius: 0 10px 20px;
+
+        padding: 4%;
+        margin-left: auto;
+        margin-right: auto;
+
+
+    }
+
+    h4 {
+
+        height: fit-content;
+
+
+
+    }
+
+    .itemInCart:last-child {
+        margin-bottom: 3%;
+    }
+
+    #info {
+
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+        width: 74%;
+
+    }
+
+    #info>hr {
+        margin-top: 1%;
+        color: rgb(131, 131, 131);
+    }
+
+    #isSalable {
+        color: green;
+    }
+
+    #price {
+        margin-top: 2%;
+    }
+
+    select {
+
+        border-radius: 10px;
+        width: 40%;
+    }
+
+    #totalPriceTemp {
+        margin-top: 4%;
+        width: 100%;
+
+
+    }
+
+    #totalPriceTemp>span {}
+
+    #totalPrice {
+        margin: 4%;
+        width: 90%;
+
+    }
+
+    #totalPrice>button {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    #popUp {
+        width: 95% !important;
+        margin: left 0.5% !important;
+        margin-right: auto !important;
+
+
+    }
+
+    #remove {
+        border-radius: 10px;
+        width: 40%;
+    }
+
+    .modal-body select {
+        margin-top: 4%;
+    }
+
+    .modal-body select:last-child {
+        margin-left: 2%;
+    }
+
+
+}
+
+#quantity {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 4%;
+
+}
+
+#quantity :last-child {
+    margin-left: 2%;
+    cursor: pointer;
+}
+
+#quantity :last-child:hover {
+    color: #0d6efd;
+}
+#confirmOrderInput
+{
+    color:red;
+}

@@ -1,0 +1,12 @@
+<app-login-page (loginEvent)="login($event)" (usernameEvent)="setUsername($event)" 
+*ngIf="userExist==false && alreadyLogged==false"></app-login-page>
+<div id="boPanel"  *ngIf="userExist==true">
+    <app-header [username]="username"></app-header>
+
+    <div class="boPanelInner">
+
+        <app-menu></app-menu>
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Conferma Ordine</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div *ngIf="confirm==false">
+            <span class="p-input-icon-left">
+                <i class="pi pi-user"></i>
+                <input type="text" pInputText placeholder="CF" [(ngModel)]="value" />
+            </span>
+            <div id="selectProvinceAddress">
+                <select #select (click)="SelectProv(select)">
+                    <option *ngFor="let p of province" value={{p.province}}>{{p.province}}</option>
+                </select>
+                <select #select (click)="SelectProv(select)">
+                    <option *ngFor="let dp of deliveryPointClicked" value={{dp.address}}{{dp.number}}>
+                        {{dp.address}} {{dp.number}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-body" *ngIf="confirm">
+            <div >
+                <div *ngIf="confirm">
+                    <span>Grazie per il tuo ordine!</span>
+                    <span> Ti arriverà una mail di conferma</span>
+                </div>
+               
+            </div>
+
+           
+        </div>
+        
+    </div>
+    <div class="modal-footer" >
+        <button type="button" class="btn btn-primary" (click)="PayOrder(true)">Conferma Ordine</button>
+    </div>
+</ng-template>
+
+

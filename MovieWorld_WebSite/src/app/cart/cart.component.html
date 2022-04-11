@@ -1,0 +1,126 @@
+<div id="cart">
+    <!--<div id="header">-->
+    <h2>{{"Carrello" | translation:labels}}</h2>
+    <div id="row">
+        <hr>
+    </div>
+    <div class="itemInCart" *ngFor="let movie of movies, let i=index">
+        <img src="{{movie.linkImg}}">
+        <div id="info">
+            <h4>{{movie.title}}</h4>
+            <hr>
+            <span id="isSalable">{{"Disponibilità immediata"|translation:labels}}</span>
+            <div id="quantity">
+                <select #select (click)="SelectQuantity(select, i,movie)">
+                    <option>Q.tà: {{getQuantityInCartForMovie(movie)}}</option>
+                    <option *ngFor="let option of [].constructor(getMovieAvailability(movie)), let quantity=index"
+                        value={{quantity}}>{{quantity+1}}</option>
+                </select>
+                <button class="btn btn-primary" id="remove"
+                    (click)="removeFromCart(movie)">{{"Rimuovi"|translation:labels}}</button>
+            </div>
+            <span id="price">{{"Prezzo"|translation:labels}}: {{"€"|translation:labels}} {{movie.price}}</span>
+
+            <div id="totalPriceTemp">
+                <hr>
+                <span> <b>{{"Totale provvisorio"|translation:labels}}:</b> {{"€"|translation:labels}}
+                    {{getTempPrice(movie.price,movie)}} </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="totalPrice">
+        <hr *ngIf="smartphoneView()==false">
+        <!--<h4>Totale €10,00</h4>-->
+
+
+        <!--  <p-button
+        (click)="showDialog()"
+        icon="pi pi-external-link"
+        label="Show"
+      ></p-button>
+      <p-dialog
+        header="Header"
+        [(visible)]="display"
+        [style]="{ width: '50vw' }"
+        [baseZIndex]="10000"
+      >
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+          non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <ng-template pTemplate="footer">
+          <p-button
+            icon="pi pi-check"
+            (click)="display = false"
+            label="Yes"
+            styleClass="p-button-text"
+          ></p-button>
+          <p-button
+            icon="pi pi-times"
+            (click)="display = false"
+            label="No"
+          ></p-button>
+        </ng-template>
+      </p-dialog>-->
+        <div id="popUp">
+            <ng-template #content let-c="close" let-d="dismiss">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">{{"Conferma Ordine"|translation:labels}}</h4>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+                </div>
+                <div class="modal-body">
+                    <div *ngIf="confirm==false">
+
+
+                        <span class="p-input-icon-left" *ngIf="checkInput">
+                            <i class="pi pi-user"></i>
+                            <input type="text" pInputText placeholder="CF" [(ngModel)]="cf" required />
+                        </span>
+                        <span class="p-input-icon-left" *ngIf="checkInput==false">
+                            <i class="pi pi-user"></i>
+                            <input placeholder="CF" id="username2" type="username" aria-describedby="username2-help"
+                                class="ng-invalid ng-dirty" pInputText />
+                        </span>
+                        <div id="selectProvinceAddress">
+                            <select #selectP (click)="SelectProv(selectP)">
+                                <option *ngFor="let p of province" value={{p.province}}>{{p.province}}</option>
+                            </select>
+                            <select #selectA >
+                                <option *ngFor="let dp of deliveryPointClicked" value={{dp.address}}{{dp.number}}>
+                                    {{dp.address}} {{dp.number}}</option>
+                            </select>
+
+                        </div><span id="confirmOrderInput" *ngIf="checkInput==false">Tutti i campi devono essere
+                            selezionati</span>
+                    </div>
+                    <div class="modal-body" *ngIf="confirm && checkInput">
+                        <div>
+                            <div *ngIf="confirm && checkInput">
+                                <span>{{"Grazie per il tuo ordine!"|translation:labels}}</span>
+                                <span> {{"Ti arriverà una mail di conferma"|translation:labels}}</span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"
+                        (click)="PayOrder(true)">{{"Chiudi"|translation:labels}}</button>
+
+                </div>
+            </ng-template>
+        </div>
+
+        <button class="btn btn-primary" (click)="open(content); confirmOrder()">{{"Totale"|translation:labels}}
+            {{"€"|translation:labels}}{{getTotalPrice()}} |
+            {{"Acquista"|translation:labels}}</button>
+    </div>
+</div>

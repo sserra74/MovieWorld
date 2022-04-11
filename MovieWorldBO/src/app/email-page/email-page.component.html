@@ -1,0 +1,144 @@
+<div id="page">
+  
+
+
+    <p-toast></p-toast>
+
+<div class="card">
+    <p-toolbar styleClass="mb-4">
+      
+
+        <ng-template pTemplate="left">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Gestisci le mail</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                    
+                </span>
+                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                <button pButton pRipple  icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedEmails || !selectedEmails.length"></button>
+              
+            </div>
+        </ng-template>
+
+        
+    </p-toolbar>
+
+    <p-table #dt scrollHeight="auto" [value]="emailList" [rows]="8" [paginator]="true" [globalFilterFields]="['title','country.name','representative.name','status']" 
+    responsiveLayout="stack" breakpoint="1025px" [(selection)]="selectedEmails" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+        
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th pSortableColumn="title">Tag<p-sortIcon field="title"></p-sortIcon></th>
+                
+            
+                <th pSortableColumn="tag">Titolo <p-sortIcon field="tag"></p-sortIcon></th>
+                <th pSortableColumn="object">Oggetto<p-sortIcon field="object"></p-sortIcon></th>
+                <th pSortableColumn="body">Testo <p-sortIcon field="body"></p-sortIcon></th>
+              
+                
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-email >
+            <tr >
+                <td>
+                    <p-tableCheckbox [value]="email"></p-tableCheckbox>
+                </td>
+                <td [innerHtml]="email.keyword"></td>
+                <td [innerHtml]="email.title"></td>
+                <td [innerHtml]="email.object"></td>
+                <td [innerHtml]="email.body"></td>
+                
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(email)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(email)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                In total there are {{emailList ? emailList.length : 0 }} emailList.
+            </div>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog [(visible)]="emailDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+       
+        <div class="field">
+            <label for="tag">Tag</label>
+            <br>
+            <input id="bold" type="button" (click)="addHtmlToText('bold', 'keyword')">
+            <input id="italic" type="button" (click)="addHtmlToText('italic', 'keyword')">
+            <input id="underline" type="button" (click)="addHtmlToText('underline', 'keyword')">
+            
+            <input placeholder="scegli tra registration, news e order" type="text" pInputText id="name" [(ngModel)]="email.keyword" required autofocus />
+            <small class="p-error" (mouseup)="captureHiglitedText()" *ngIf="submitted && !email.keyword">Keyword is required.</small>
+        </div>
+        
+        <div class="field">
+            <label for="title">Titolo</label>
+            <br>
+            <input id="bold" type="button" (click)="addHtmlToText('bold', 'title')">
+            <input id="italic" type="button" (click)="addHtmlToText('italic', 'title')">
+            <input id="underline" type="button" (click)="addHtmlToText('underline', 'title')">
+            <input type="text" (mouseup)="captureHiglitedText()" pInputText id="name" [(ngModel)]="email.title" required autofocus />
+            
+            <small class="p-error" *ngIf="submitted && !email.title">Title is required.</small>
+        </div>
+       
+       
+       
+        <div class="field">
+            <label for="object">Oggetto</label>
+            <br>
+            <input id="bold" type="button" (click)="addHtmlToText('bold', 'object')">
+            <input id="italic" type="button" (click)="addHtmlToText('italic', 'object')">
+            <input id="underline" type="button" (click)="addHtmlToText('underline', 'object')">
+            <input type="text" (mouseup)="captureHiglitedText()" pInputText id="object" [(ngModel)]="email.object"  autofocus />
+          
+          
+        </div>
+        <div class="field">
+            <label for="text">Testo</label>
+            <br>
+            <input id="bold" type="button" (click)="addHtmlToText('bold', 'body')">
+            <input id="italic" type="button" (click)="addHtmlToText('italic', 'body')">
+            <input id="underline" type="button" (click)="addHtmlToText('underline', 'body')">
+            <textarea id="body" (mouseup)="captureHiglitedText()" pInputTextarea [(ngModel)]="email.body" required autofocus rows="3" cols="20"></textarea>
+            <small class="p-error" *ngIf="submitted && !email.body">Text is required.</small>
+        </div>
+        <!--<div class="field">
+            <label for="inventoryStatus">{{"Disponibilità in magazzino" | translation: labels}}</label>
+            <p-dropdown [(ngModel)]="movie.inventoryStatus" inputId="inventoryStatus" [options]="statuses" placeholder="Select">
+                <ng-template let-option pTemplate="item">
+                    <span [class]="'product-badge status-' + option.value">{{option.label}}</span>
+                </ng-template>
+
+            </p-dropdown>
+            <small class="p-error" *ngIf="submitted && !movie.isSalable">Immagine is required.</small>
+        </div>-->
+
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+    
+    
+
+
+</div>

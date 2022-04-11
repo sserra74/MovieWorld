@@ -1,0 +1,257 @@
+header{
+    color: white;
+  
+    background-color: #34495e;
+   /* text-align: center;*/
+    
+}
+
+.title
+{
+    margin-left: 3%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    
+    
+    flex-wrap: wrap;
+}
+.title>a{
+  
+  flex: 0 0 33.33333%;
+  text-decoration: none;
+  font-size: calc(2rem + .9vw);
+  padding-left: 10px;
+  padding-top: 10px;
+  font-family: 'Roboto',sans-serif;
+ 
+ color:white;
+
+    
+  }
+
+ 
+  .nav-item a
+  {
+    color: white;
+    font-size: 1em;
+    font-family: 'Roboto',sans-serif;
+   border: 1px solid transparent;
+   
+  }
+
+  .nav-item a:hover
+  {
+      border: 1px solid white;
+      transition: .5s;
+  }
+
+
+
+
+  .hidden
+  {
+      display: none;
+  }
+ 
+img
+{ 
+    width:4%;
+}
+
+
+body
+{
+    background-image: linear-gradient(180deg, #eeeeee 0%, white 100%);
+}
+#preHeader
+{
+    background-color: #0d364a;
+    display: flex; 
+    justify-content: flex-end
+}
+
+#navBar
+{
+   
+    padding-top:1.5%;
+    padding-left: 5%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+#LoginChart
+{
+  
+  margin-top:0.2em;
+  margin-left: 10%;
+ /* background-color: #0d6efd;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  min-width: 120px;
+  justify-content: space-around;*/
+  height: fit-content;
+  width:fit-content;
+  
+}
+fa-icon:hover
+{cursor: pointer;
+margin-left:1 em;}
+
+#loginMenu
+{
+  position: relative;
+  width: 19rem;
+  height:20rem;
+  margin-left:-9.5%;
+  background: #eeeeee;
+  margin-top:0.8%;
+  position: fixed;/**/
+  z-index:99;
+  color:black;
+  word-break: break-all;
+  
+  
+}
+
+#loginMenu::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 13px solid transparent;
+    border-bottom-color: #eeeeee;
+    border-top: 0;
+    margin-left: -13px;
+    margin-top: -13px;
+    z-index: 2;
+  }
+
+#loginMenu>div
+{
+  background-color: #dddddd;
+  height: 10%;
+}
+.options
+{
+  display:grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 2em;
+  margin-top:1.6%;
+  margin-left:auto;
+  margin-right: 10%;
+  
+  
+}
+.fa-shopping-cart
+{
+  line-height: 2em;
+  cursor:pointer;
+}
+.cart
+{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 4%;
+  width: 100%;;
+  background-color: #0d6efd;
+  border-radius: 50px;
+  min-width: 4em;
+  height: fit-content;
+  cursor: pointer;
+}
+ i
+{
+  padding-left:0.5em;
+}
+#cartText
+{
+ 
+  padding-left:10%;
+  padding-top:10%;
+  
+}
+
+@media all and (max-width: 539px) { 
+    .title
+    {
+       
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-basis: 50%;;
+        
+    }
+    
+    
+    .title>a{
+      
+       
+      text-decoration: none;
+      font-size: calc(2rem + .9vw);
+     
+      padding-top: 10px;
+      font-family: myriad pro regular;
+      font-weight: 600;
+      color:white;
+      text-align: center;
+      
+      }
+    #navBar
+    {
+        margin:auto;
+    }
+     
+      .nav-item>a
+      {
+        color: white;
+        font-size: 0.8em;
+        text-align: center;
+        font-family: 'Roboto',sans-serif;
+       
+        
+        
+      }
+      
+     .icon
+      {
+        font-size: 20px;
+        
+       padding-right:4%;
+        padding-top: 4%;
+        margin-left: auto; 
+        margin-right: 0;
+       cursor: pointer;
+      }
+      .p-sidebar
+      {
+        background: #34495e ;
+      }
+     
+      
+    } 
+
+    ul
+    {
+      color:black;
+    }
+    li
+    {
+     
+      list-style: none;
+      color:black;
+    }
+    .fa-shopping-cart
+    {
+      line-height: 2em;
+     /*font-size: 0.9em;*/
+    }
+    
+    
+
+    

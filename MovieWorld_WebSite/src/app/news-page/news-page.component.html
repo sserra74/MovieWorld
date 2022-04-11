@@ -1,0 +1,20 @@
+<div id="newsDetail">
+    <div id="header" *ngIf="smartphoneView()==false">
+        <div id="bgImage"><img src="{{news[0].image}}"> </div>
+        <div id="title">
+            <h1 [innerHTML]="news[0].title"></h1>
+            <h4 [innerHTML]="news[0].subTitle"></h4>
+            <p  [innerHTML]="news[0].text"></p>
+        </div>
+    </div>
+
+
+    <div id="header" *ngIf="smartphoneView()==true">
+        <div id="bgImage"><img src="{{news[0].image}}"> </div>
+        <div id="title">
+            <h1 [innerHTML]="news[0].title"></h1>
+            <h4 [innerHTML]="news[0].subTitle"></h4>
+            <p  [innerHTML]="news[0].text"></p>
+        </div>
+    </div>
+</div>

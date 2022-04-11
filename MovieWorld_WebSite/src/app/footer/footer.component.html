@@ -1,0 +1,73 @@
+<footer>
+  <div  *ngIf="!smartphoneView()">
+  <div class="row">
+    <div class="col-xl-4">
+      <b >Aiuto e informazioni</b>
+
+      <ul>
+        <li><a href="#">Aiuto</a></li>
+        <li><a href="#">Traccia ordine</a></li>
+        <li><a href="#">Spedizioni</a></li>
+        <li><a href="#">Restituisci l'articolo</a></li>
+        <li><a href="#">Articolo danneggiato</a></li>
+      </ul>
+    </div>
+    <div class="col-xl-4">
+      <b>Punti Vendita</b>
+      <ul>
+        <li><a href="#">Trova punto vednita</a></li>
+        <li><a href="#">Diventa un nostro affiliato</a></li>
+      </ul>
+    </div>
+    <div class="col-xl-4">
+      <b> Contattaci</b>
+      <form><button class="btn btn-primary">Vai al supporto</button></form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12">©2022 MovieWorld. Tutti i diritti riservati - P.I 00947856234</div>
+  </div>
+</div>
+
+<div *ngIf="smartphoneView()">
+  <div class="row">
+    <div class="col-xl-4">
+      <b (click)="setHoverGroup(0)">Aiuto e informazioni</b><i class="fas fa-angle-up" *ngIf="hoverFirstGroup"></i>
+      <i class="fas fa-angle-down" *ngIf="!hoverFirstGroup"></i>
+
+      <ul *ngIf="hoverFirstGroup">
+        <li><a href="#">Aiuto</a></li>
+        <li><a href="#">Traccia ordine</a></li>
+        <li><a href="#">Spedizioni</a></li>
+        <li><a href="#">Restituisci l'articolo</a></li>
+        <li><a href="#">Articolo danneggiato</a></li>
+      </ul>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-xl-4">
+      <b (click)="setHoverGroup(1)">Punti Vendita</b><i class="fas fa-angle-up" *ngIf="hoverSecondGroup"></i>
+      <i class="fas fa-angle-down" *ngIf="!hoverSecondGroup"></i>
+      <ul *ngIf="hoverSecondGroup">
+        <li><a href="#">Trova punto vednita</a></li>
+        <li><a href="#">Diventa un nostro affiliato</a></li>
+      </ul>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4">
+      <b (click)="setHoverGroup(2)"> Contattaci</b><i class="fas fa-angle-up" *ngIf="hoverThirdGroup"></i>
+      <i class="fas fa-angle-down" *ngIf="!hoverThirdGroup"></i>
+      <form *ngIf="hoverThirdGroup"><button class="btn btn-primary">Vai al supporto</button></form>
+      </div>
+    </div>
+   
+  
+  <div class="row">
+    <hr>
+    <div class="col-xl-12">©2022 MovieWorld. Tutti i diritti riservati -<br> <span>P.I 00947856234</span> </div>
+  </div>
+</div>
+
+
+</footer>

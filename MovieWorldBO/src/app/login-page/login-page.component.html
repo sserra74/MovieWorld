@@ -1,0 +1,18 @@
+<div class="login">
+    <div id="content">
+    <div  id="title">
+        <h2>Sign in</h2>
+    </div>
+    <form  (submit)="login(username, password)">
+        <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input #username type="username" placeholder="Username" > 
+        </div>
+        <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input #password type="password" placeholder="Password">
+        </div>
+        <button id="loginButton"  class="btn btn-primary" >Login</button>
+        <span id="credentialsError" *ngIf="userExists">Credenziali errate, riprova</span>
+    </form></div>
+</div>

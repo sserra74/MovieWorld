@@ -1,0 +1,15 @@
+
+ 
+  <div class="row">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Lingua</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem (click)="changeLanguage('it')" ><img src="assets/Images/itaLanguage.png">{{languages[0].language}}</button>
+          <button ngbDropdownItem (click)="changeLanguage('en')"><img src="assets/Images/enLanguage.png">{{languages[1].language}}</button>
+         
+        </div>
+      </div>
+    </div>
+  
+    

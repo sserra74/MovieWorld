@@ -1,0 +1,106 @@
+<div id="page">
+
+ <p-toast></p-toast>
+  
+  <div class="card">
+      <p-toolbar styleClass="mb-4">
+        
+  
+          <ng-template pTemplate="left">
+              <div class="flex align-items-center justify-content-between">
+                  <h5 class="m-0">Gestisci gli utenti</h5>
+                  <span class="p-input-icon-left">
+                      <i class="pi pi-search"></i>
+                      <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                      
+                  </span>
+                  <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                  <button pButton pRipple  icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedUsers || !selectedUsers.length"></button>
+                
+              </div>
+          </ng-template>
+  
+          
+      </p-toolbar>
+  
+      <p-table #dt scrollHeight="auto" [value]="users" [rows]="8" [paginator]="true" [globalFilterFields]="['title','country.name','representative.name','status']" 
+      responsiveLayout="stack" breakpoint="1025px" [(selection)]="selectedUsers" [rowHover]="true" dataKey="id"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+          
+          <ng-template pTemplate="header">
+              <tr>
+                  <th style="width: 3rem">
+                      <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                  </th>
+                  <th pSortableColumn="userId">UserID <p-sortIcon field="userID"></p-sortIcon></th>
+                  <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+                  <th pSortableColumn="username">Username <p-sortIcon field="username"></p-sortIcon></th>
+                  <th pSortableColumn="password">Password</th>
+                 
+            
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-user >
+              <tr >
+                  <td>
+                      <p-tableCheckbox [value]="user"></p-tableCheckbox>
+                  </td>
+                  <td>{{user.userId}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.password}}</td>
+                  
+
+                  <td>
+                      <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(user)"></button>
+                      <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(user)"></button>
+                  </td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="summary">
+              <div class="flex align-items-center justify-content-between">
+                  In total there are {{users ? users.length : 0 }} users.
+              </div>
+          </ng-template>
+      </p-table>
+  </div>
+  
+  <p-dialog [(visible)]="userDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+      <ng-template pTemplate="content">
+         
+          
+          <div class="field">
+              <label for="Email">Email</label>
+              <input type="text" pInputText id="email" [(ngModel)]="user.email" required autofocus />
+              <small class="p-error" *ngIf="submitted && !user.email">Email is required.</small>
+          </div>
+         
+       
+          <div class="field">
+              <label for="username">Username</label>
+              <input type="text" pInputText id="username" [(ngModel)]="user.username" required autofocus />
+              <small class="p-error" *ngIf="submitted && !user.username">Username is required.</small>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="text" pInputText id="password" [(ngModel)]="user.password" required autofocus />
+            <small class="p-error" *ngIf="submitted && !user.password">Password is required.</small>
+        </div>
+  
+      </ng-template>
+  
+      <ng-template pTemplate="footer">
+          <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+          <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+      </ng-template>
+  </p-dialog>
+  
+  <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+  
+  
+      
+  
+  
+  </div>
+
+  

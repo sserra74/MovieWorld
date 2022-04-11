@@ -1,0 +1,7 @@
+<header>
+    <div id="nav">
+        <span>{{"Ciao" | translation: labels}} {{username}}!</span>
+        <p-multiSelect [options]="languageLabel" [(ngModel)]="selectedLanguageLabels" optionLabel="name"
+            defaultLabel="Scegli lingua" (click)="setLanguage()" ></p-multiSelect>
+    </div>
+</header>

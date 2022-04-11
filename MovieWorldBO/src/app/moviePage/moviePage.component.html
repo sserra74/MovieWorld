@@ -1,0 +1,188 @@
+<div id="page">
+  
+
+
+    <p-toast></p-toast>
+
+<div class="card">
+    <p-toolbar styleClass="mb-4">
+      
+
+        <ng-template pTemplate="left">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">{{"Gestisci i film" |translation:labels}}</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                    
+                </span>
+                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                <button pButton pRipple  icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedMovies || !selectedMovies.length"></button>
+              
+            </div>
+        </ng-template>
+
+        
+    </p-toolbar>
+
+    <p-table #dt scrollHeight="auto" [value]="movies" [rows]="8" [paginator]="true" [globalFilterFields]="['title','country.name','representative.name','status']" 
+    responsiveLayout="stack" breakpoint="1025px" [(selection)]="selectedMovies" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+        
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th pSortableColumn="title">{{"Titolo" | translation: labels}} <p-sortIcon field="title"></p-sortIcon></th>
+                
+                <th pSortableColumn="image">{{"Image" | translation: labels}}</th>
+               
+                <th pSortableColumn="format">{{"Formato"  | translation: labels}} <p-sortIcon field="format"></p-sortIcon></th>
+                <th pSortableColumn="inventoryStatus">{{"Stato Inventario"  | translation: labels}} <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
+                <th pSortableColumn="availability">{{"Copie disponibili"  | translation: labels}} <p-sortIcon field="availability"></p-sortIcon></th>
+                <th pSortableColumn="cult">{{ "Cult"   | translation: labels}} <p-sortIcon field="cult"></p-sortIcon></th>
+                <th pSortableColumn="year">{{"Anno"  | translation: labels}} <p-sortIcon field="year"></p-sortIcon></th>
+                <th pSortableColumn="price">{{"Prezzo"  | translation: labels}} <p-sortIcon field="price"></p-sortIcon></th>
+                <th pSortableColumn="shortPlot" style="width:30%; text-align:center">{{"Trama" | translation: labels}} </th>
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-movie >
+            <tr >
+                <td>
+                    <p-tableCheckbox [value]="movie"></p-tableCheckbox>
+                </td>
+                <td>{{movie.title}}</td>
+               
+                <td><img [src]="movie.linkImg" [alt]="movie.title" width="100" class="shadow-4" /></td>
+               
+                <td>{{movie.format}}</td>
+                <td><span [class]="'product-badge status-' + (movie.availability>0 ? ('INSTOCK').toLowerCase() : ('OUTOFSTOCK').toLowerCase())">
+                    {{movie.availability>0 ? "INSTOCK": "OUTOFSTOCK"}}</span></td>
+                <td>{{movie.availability}}</td>
+                <td>{{movie.cult}}</td>
+                <td>{{movie.year}}</td>
+                <td>{{movie.price | currency:'EUR'}}</td>
+                <td>{{movie.shortPlot}}</td>
+                
+                
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(movie)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(movie)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                In total there are {{movies ? movies.length : 0 }} movies.
+            </div>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog [(visible)]="movieDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <img [src]="'assets/showcase/images/demo/product/' + movie.image" [alt]="movie.image" class="product-image" *ngIf="movie.image">
+        
+        <div class="field">
+            <label for="name">{{"Titolo" | translation: labels}}</label>
+            <input type="text" pInputText id="name" [(ngModel)]="movie.title" required autofocus />
+            <small class="p-error" *ngIf="submitted && !movie.title">Name is required.</small>
+        </div>
+       
+        <div class="field">
+            <label for="image">{{"Immagine di locandina"  | translation: labels}}</label>
+            <input type="file" #file (change)="onselectFile(file.files, movie)" id="img" [(ngModel)]="movie.linkImg" required autofocus/>
+           
+            <small class="p-error" *ngIf="submitted && !movie.linkImg">Immagine is required.</small>
+        </div>
+        <div class="field">
+            <label for="image">{{"Immagine di sfondo" | translation: labels}}</label>
+            <input type="file" pInputText id="img" [(ngModel)]="movie.bgImage" required autofocus />
+            <small class="p-error" *ngIf="submitted && !movie.bgImage">Immagine is required.</small>
+        </div>
+        <div class="field">
+            <label for="description">{{"Trama" | translation:labels}}</label>
+            <textarea id="description" pInputTextarea [(ngModel)]="movie.shortPlot" required rows="3" cols="20"></textarea>
+            <small class="p-error" *ngIf="submitted && !movie.shortPlot">Trama is required.</small>
+        </div>
+        <div class="field">
+            <label for="year">{{"Anno" | translation: labels}}</label>
+            <p-inputNumber id="year" [(ngModel)]="movie.year"></p-inputNumber>
+            <small class="p-error" *ngIf="submitted && !movie.year">Year is required.</small>
+        </div>
+        <!--<div class="field">
+            <label for="inventoryStatus">{{"Disponibilità in magazzino" | translation: labels}}</label>
+            <p-dropdown [(ngModel)]="movie.inventoryStatus" inputId="inventoryStatus" [options]="statuses" placeholder="Select">
+                <ng-template let-option pTemplate="item">
+                    <span [class]="'product-badge status-' + option.value">{{option.label}}</span>
+                </ng-template>
+
+            </p-dropdown>
+            <small class="p-error" *ngIf="submitted && !movie.isSalable">Immagine is required.</small>
+        </div>-->
+
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="quantity">{{"Copie Disponibili" | translation: labels}}</label>
+                <p-inputNumber id="quantity" [(ngModel)]="movie.availability"></p-inputNumber>
+                <small class="p-error" *ngIf="submitted && !movie.availability">Immagine is required.</small>
+            </div>
+            <div class="field col">
+                <label for="price">{{"Price" | translation: labels}} p.p</label>
+                <p-inputNumber id="price" [(ngModel)]="movie.price" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+                <small class="p-error" *ngIf="submitted && !movie.price">Immagine is required.</small>
+            </div>
+            
+        </div>
+
+        <div class="field">
+            <label class="mb-3">{{"Formato" |translation:labels}}</label>
+            <div class="formgrid grid">
+                <div class="field-radiobutton col-6">
+                    <p-radioButton id="category1" name="format" value="DVD" [(ngModel)]="movie.format"></p-radioButton>
+                    <label for="format1">DVD</label>
+                    
+                </div>
+                <div class="field-radiobutton col-6">
+                    <p-radioButton id="category2" name="format" value="BluRay" [(ngModel)]="movie.format"></p-radioButton>
+                    <label for="format2">BluRay</label>
+                </div>
+                
+            </div>
+        </div>
+
+        
+
+        <div class="field">
+            <label class="mb-3">Cult</label>
+            <div class="formgrid grid">
+                <div class="field-radiobutton col-6">
+                    <p-radioButton id="category1" name="cult" value="true" [(ngModel)]="movie.cult"></p-radioButton>
+                    <label for="cult1">Sì</label>
+                </div>
+                <div class="field-radiobutton col-6">
+                    <p-radioButton id="category2" name="cult" value="false" [(ngModel)]="movie.cult"></p-radioButton>
+                    <label for="cult2">No</label>
+                </div>
+                
+            </div>
+        </div>
+
+        
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+    
+    
+
+
+</div>

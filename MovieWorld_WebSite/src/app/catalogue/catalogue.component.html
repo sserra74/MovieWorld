@@ -1,0 +1,176 @@
+<div id="lastMovies" class="container-fluid">
+    <div id="titleSlide">
+        <h2>{{"Ultimi film" | translation:labels}}</h2>
+    </div>
+
+
+    <div id="containerLastFilm" *ngIf="smartphoneView()==false">
+        <div class="customCard"  
+        *ngFor=" let movie of getLastMovies(), let i=index" (click)="movieChosed(movie.isSalable, movie.filmId)">
+            <img src="{{movie.linkImg}}"> 
+        </div>
+    </div>
+
+   
+  
+ 
+    <swiper [cssMode]="true" [navigation]="true" [pagination]="true" [mousewheel]="true" [keyboard]="true" class="mySwiper"
+    *ngIf="smartphoneView()==true">
+        <ng-template swiperSlide *ngFor="let i of [].constructor(getLastMovies().length), let j=index">
+            <div id="containerLastFilm">
+                <div class="customCard"  (click)="movieChosed(true,j)">
+                <img src="{{lastMovies[j].linkImg}}">
+                </div>
+            </div>
+              
+        </ng-template>
+    </swiper>
+   
+    
+</div>
+
+
+<div class="sectionCatalogue">
+    <div class="container">
+        <div id="filter" class="col">
+            <div id="filterLabel" (click)="setHoverGroup()">
+                <p id="filterText" >{{"Filtra per" | translation: labels}}</p>
+                <i class="fas fa-angle-up" *ngIf="hoverFilterGroup && smartphoneView()==true"></i>
+                <i class="fas fa-angle-down" *ngIf="!hoverFilterGroup && smartphoneView()==true"></i>
+            </div>
+            <hr>
+            <div id="organizeFilter" *ngIf="(hoverFilterGroup==false && smartphoneView()==true) 
+            || (hoverFilterGroup && smartphoneView()==false)">
+                <div  class="filterBox" *ngFor="let label of labelsFilter, let i=index">
+                    <p>
+                        <button type="button" class="btn btn-outline-primary" 
+                            [attr.aria-expanded]="!clicked[i]" aria-controls="collapseExample" (click)="collapse.toggle()">
+                            {{label | translation:labels }}
+                        </button>
+                    </p>
+                    <div #collapse="ngbCollapse" [(ngbCollapse)]="smartphoneView()==false ? clicked[i] : !clicked[i]">
+                        <div class="card">
+                            <div class="card-body">
+                                <form *ngIf="i==0" id="Genre">
+                                    <input #GenreInputAction type="checkbox" name="genreAction" value="Azione" (click)="filter(GenreInputAction)">
+                                    <label for="Action">Azione{{ nameOfFilterClicked=="genreAction" ? "("+getMoviesLengthAfterFilter("Azione")+")" : ""}}  
+                                    </label><br>
+
+                                    <input #GenreInputAdventure type="checkbox" name="genreAdventure" value="Avventura" (click)="filter(GenreInputAdventure)">
+                                    <label for="Adventure">Avventura{{ nameOfFilterClicked=="genreAdventure" ? "("+getMoviesLengthAfterFilter("Avventura")+")" : ""}}
+                                    </label><br>
+
+                                    <input #GenreInputScienceFiction type="checkbox" name="genreScienceFiction" value="Fantascienza" (click)="filter(GenreInputScienceFiction)">
+                                    <label for="Science Fiction">Fantascienza{{ nameOfFilterClicked=="genreScienceFiction" ? "("+getMoviesLengthAfterFilter("Fantascienza")+")" : ""}}
+                                    </label><br>
+
+                                    <input #GenreInputFantasy type="checkbox" name="genreFantasy" value="Fantasy" (click)="filter(GenreInputFantasy)">
+                                    <label for="Fantasy">Fantasy{{ nameOfFilterClicked=="genreFantasy" ? "("+getMoviesLengthAfterFilter("Fantasy")+")" : ""}}
+                                    </label><br>
+
+                                    <input #GenreInputHorror type="checkbox" name="genreHorror" value="Horror" (click)="filter(GenreInputHorror)">
+                                    <label for="Horror">Horror{{ nameOfFilterClicked=="genreHorror" ? "("+getMoviesLengthAfterFilter("Horror")+")" : ""}}
+                                    </label><br>
+
+                                    <input #GenreInputCommedy type="checkbox" name="genreCommedy" value="Commedy" (click)="filter(GenreInputCommedy)">
+                                    <label for="Commedy">Commedia{{ nameOfFilterClicked=="genreCommedy" ? "("+getMoviesLengthAfterFilter("Commedy")+")" : ""}}</label><br>
+                                </form>
+
+                            
+                                <ul *ngIf="i==1">
+                                    <li *ngFor="let i of years" value=i (click)="filterYear(i)"><label for="Action">{{i}}</label></li>
+                                </ul>
+
+
+                                <div id="price" *ngIf="i==2">
+                                    <form>
+                                        <input type="radio" #InputPrezzoC name="price"  value="increasing" (click)="filterPrice(InputPrezzoC)" value="crescent"><label for="crecent">Prezzo
+                                            crescente</label><br>
+                                        <input type="radio"  #InputPrezzoD name="price" value="decreasing" (click)="filterPrice(InputPrezzoD)"><label for="decrescent">Prezzo
+                                            decrescente</label><br>
+
+                                    </form>
+                                </div>
+
+                                <div id="format" *ngIf="i==3">
+                                    <form>
+                                        <input type="radio" #InputFormatB name="format" value="BluRay" (click)="filter(InputFormatB)">
+                                        <label for="bluRay">BluRay{{ nameOfFilterClicked=="format" ? "("+getMoviesLengthAfterFilter("BluRay")+")" : ""}} </label><br>
+                                        <input type="radio" #InputFormatD name="format" value="DVD" (click)="filter(InputFormatD)">
+                                        <label for="dvd">Dvd{{ nameOfFilterClicked=="format" ? "("+getMoviesLengthAfterFilter("DVD")+")" : ""}}</label><br>
+
+                                    </form>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="reset">
+                    <form>
+                        <button class="btn btn-primary">Reset</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="movieInCatalogue">
+        <div id="searchBar"><input #search type="search" placeholder="Cerca..." [value]='myValue' (input)="searchByName(search.value)"></div>
+        <div class="customCardCatalog" *ngFor="let movie of getMoviesForPages()"  (click)="movieChosed(movie.isSalable, movie.filmId)"
+        [ngStyle]="{'opacity':  movie.isSalable===false ?  '0.3' : '1', 'cursor': movie.isSalable===false ?  '' : 'pointer'  }">
+            <img src="{{movie.linkImg}}"> 
+            <div id="additionalInfo">
+                <span id="title">{{movie.title}}</span>
+                <div id="avaiableInfo">
+                    <span *ngIf="movie.isSalable==true">Disponibile</span>
+                    <span *ngIf="movie.isSalable==false">Non Disponibile</span>
+                    <span >Prezzo: €{{movie.price}}</span>
+                </div>
+            </div>
+        </div>
+        <h3 id="notFound" *ngIf="movies.length==0">Nessun risultato corrisponde alla ricerca</h3>
+    </div>
+
+  <!--[collectionSize]="70"-->
+  <ngb-pagination #pagesComponent (click)="nextPage(pagesComponent)" id="pages"  [pageSize]="pageSize" [collectionSize]="pages" [(page)]="page" [directionLinks]="false"></ngb-pagination>
+  
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+

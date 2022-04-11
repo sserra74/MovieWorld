@@ -1,0 +1,75 @@
+  <header>
+
+    <!--<div id="preHeader">
+      Login<hr style="color: #4a5057;  height: 3px">
+    </div>-->
+    <div class="title">
+      <!-- <img src="../assets/Images/nuovoLogo.png">-->
+     
+      <a href="#"> MovieWorld</a>
+     <div [ngClass]="{'icon' : smartphoneView()==true, 'hidden' : smartphoneView()==false}" (click)="showMenu(); gfg=true">
+      <i class="fas fa-bars" ></i>
+      </div>
+      <div id="navBar" *ngIf="menu==true || smartphoneView()==false">
+       
+          <p-sidebar [(visible)]="gfg" [baseZIndex]="10000">
+           
+            <h1 style="font-weight: normal">Menù</h1> 
+            <p-menu [model]="items"></p-menu>
+           
+           
+            <p-button
+              type="button"
+              (click)="gfg = false"
+              label="OK"
+              styleClass="p-button-info">
+            </p-button>
+            <p-button
+              type="button"
+              (click)="gfg = false"
+              label="Cancel"
+              styleClass="p-button-danger">
+            </p-button>
+          </p-sidebar>
+         
+          
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Homepage</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="{{language}}/catalogue" href="#"  >{{ "Catalogo" | translation: labels }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="{{language}}/deliveryPoint" href="#">{{ "Punto Vendita" | translation : labels }}</a>
+            </li>
+          </ul>
+
+       
+
+      </div>
+
+      <div class="options">
+        <app-language  (languageClickedEvent) = "languageClicked($event)"></app-language>
+        <div id="LoginChart" *ngIf="smartphoneView()==false">
+          <fa-icon [icon]="faUser" (mouseenter)="setHover()" ></fa-icon>
+        <!--  <span>Ciao Marco</span>-->
+          <div id="loginMenu" *ngIf="hover" (mouseleave)="setHover()">
+            <div><a routerLink="it/login" (click)="TakeCurrentRoute()">Login</a> | <a routerLink="it/registration" (click)="TakeCurrentRoute()">Registrati</a></div>
+          </div>
+        </div> 
+        <div class="cart">
+          <i routerLink="{{quantity>0 ? 'it/cart' : ''}}" class="fa fa-shopping-cart "></i>
+          <div id="cartText">
+            <span>{{quantity}}</span>
+           
+          </div>
+          <span class="badge"></span>
+        </div>
+      </div>
+    </div>
+    
+    
+  </header>
+
+ 

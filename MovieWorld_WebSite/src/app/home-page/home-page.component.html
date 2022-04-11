@@ -1,0 +1,50 @@
+<div id="title">
+  <h2>Film Cult</h2>
+</div>
+  
+<swiper [cssMode]="true" [navigation]="true" [pagination]="true" [mousewheel]="true" [keyboard]="true" class="mySwiper">
+
+  <ng-template swiperSlide *ngFor="let i of [].constructor(smartphoneView()==false ? countSlide(movies.length, false)
+                                                                                   : countSlide(cultMovies.length, true)
+                                                          ), let j=index">
+   <div id="cultFilm" class="container-fluid"  *ngIf="smartphoneView()==false">
+      <div class="customCard"  *ngFor="let movie of getMoviesForSlide(j,cultMovies), let id=index" (click)="movieChosed(movie.filmId)">
+        <img src="{{movie.linkImg}}"> 
+      </div>
+    </div>
+
+    <div id="cultFilm" class="container-fluid"  *ngIf="smartphoneView()==true">
+      <div class="customCard"   (click)="movieChosed(j)">
+        <img src="{{cultMovies[j].linkImg}}">
+      </div>
+    </div>
+
+  </ng-template>
+</swiper>
+
+<div class="news">
+  <div id="sectionNews">
+    <h2>News</h2>
+    <hr id="lineAfterTitleSection">
+  </div>
+  
+  <div class="cards">
+    
+    <div class="card" style="width: 18rem;" *ngFor="let news of news" (click)="newsClicked(news.idNews)">
+      <img src="{{news.image}}" class="card-image" alt="...">
+
+      <div class="card-body">
+        <h5 class="card-title"><b>{{news.title}}</b></h5>
+        <p class="card-text" [innerHTML]="news.text"></p>
+        <div class="afterHover">
+          <div class="text">Visualizza</div>
+        </div>
+      </div>
+
+      
+    </div>
+  
+  </div>
+
+
+  

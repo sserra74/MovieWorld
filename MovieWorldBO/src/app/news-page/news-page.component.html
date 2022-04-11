@@ -1,0 +1,133 @@
+<div id="page">
+  
+<p-toast></p-toast>
+
+<div class="card">
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Gestisci le news</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                    
+                </span>
+                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                <button pButton pRipple  icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedNews || !selectedNews.length"></button>
+              
+            </div>
+        </ng-template>
+
+        
+    </p-toolbar>
+
+    <p-table #dt scrollHeight="auto" [value]="newsList" [rows]="8" [paginator]="true" [globalFilterFields]="['title','country.name','representative.name','status']" 
+    responsiveLayout="stack" breakpoint="1025px" [(selection)]="selectedNews" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+        
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th pSortableColumn="title">Titolo <p-sortIcon field="title"></p-sortIcon></th>
+                <th pSortableColumn="subtitle">Sottotitolo <p-sortIcon field="subtitle"></p-sortIcon></th>
+                <th pSortableColumn="image">Image</th>
+               
+                <th pSortableColumn="text">Testo <p-sortIcon field="text"></p-sortIcon></th>
+               
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-news >
+            <tr >
+                <td>
+                    <p-tableCheckbox [value]="news"></p-tableCheckbox>
+                </td>
+                <td>{{news.title}}</td>
+                <td>{{news.subTitle}}</td>
+                <td><img [src]="news.image" [alt]="news.title" width="100" class="shadow-4" /></td>
+                <td [innerHtml]="news.text"></td>
+               
+                
+                
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(news)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(news)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                In total there are {{newsList ? newsList.length : 0 }} news.
+            </div>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog [(visible)]="newsDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+       
+        
+        <div class="field">
+            <label for="name">Titolo</label>
+            <input type="text" pInputText id="name" [(ngModel)]="news.title" required autofocus />
+            <small class="p-error" *ngIf="submitted && !news.title">Name is required.</small>
+        </div>
+        <div class="field">
+            <label for="subtitle">Sottotitolo</label>
+            <input type="text" pInputText id="name" [(ngModel)]="news.subTitle" required autofocus />
+            <small class="p-error" *ngIf="submitted && !news.subTitle">Name is required.</small>
+        </div>
+        <div class="field">
+            <label for="image">Immagine</label>
+            <input type="file" #file (change)="onselectFile(file.files, news)" id="img" [(ngModel)]="news.image" required autofocus/>
+           
+           
+        </div>
+       
+        <p-tabView>
+            <p-tabPanel header="Testo">
+                <div class="field">
+                    <label for="text">Testo </label>
+                    <textarea id="text" pInputTextarea [(ngModel)]="news.text" required rows="3" cols="20"></textarea>
+                    <small class="p-error" *ngIf="submitted && !news.text">Trama is required.</small>
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="Testo HTML">
+                
+                <div class="field">
+                    <label for="text">Testo </label>
+                   
+                    
+                    <br>
+                    <input id="bold" type="button" (click)="addHtmlToText('bold')">
+                    <input id="italic" type="button" (click)="addHtmlToText('italic')">
+                    <input id="underline" type="button" (click)="addHtmlToText('underline')">
+                    <textarea [id]="align" (mouseup)="captureHiglitedText()" pInputTextarea [(ngModel)]="news.text" required rows="3" cols="20"></textarea>
+                    <small class="p-error" *ngIf="submitted && !news.text">Trama is required.</small>
+                </div>
+                
+            </p-tabPanel>
+            
+        </p-tabView>
+
+
+       
+
+       
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+    
+    
+
+
+</div>

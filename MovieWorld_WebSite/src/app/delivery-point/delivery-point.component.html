@@ -1,0 +1,36 @@
+<div class="title">
+    <h2>{{"Punti Vendita" | translation:labels}}</h2>
+    <div id="additionalInfo">
+        <span>{{"La catena MovieWorld"| translation: labels}}"
+            
+        </span>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div id="container1">
+        <div id="prov">
+            <h4>{{"Seleziona la provincia" |translation:labels}}</h4>
+            <select #select (click)="SelectProv(select)" >
+               
+                <option   *ngFor="let p of prov" value={{p.province}}  >{{p.province}}</option>
+            </select>
+            
+        </div>
+        <div id="info">
+            <h5>{{"Orari" |translation:labels}}:</h5>
+            <span id="day"> {{"Lunedì"|translation:labels}} - {{"Venerdì"|translation:labels}}:</span><br>
+            <span>10:00-19:00</span><br>
+            <span id="day">{{"Sabato" |translation:labels}}:</span><br>
+            <span>10:00-13:00</span><br>
+        </div>
+    </div>
+    <div id="container2" >
+        <h4 >{{"Punti Vendita" | translation:labels}}</h4>
+        <ul >
+          
+            <li *ngFor="let d of deliveryPointClicked">{{d.address}} {{d.number}}</li>
+        </ul>
+    </div>
+
+</div>

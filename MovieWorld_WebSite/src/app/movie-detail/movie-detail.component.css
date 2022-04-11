@@ -1,0 +1,360 @@
+* {
+    font-size: 1em;
+    text-shadow: 0 1px 3px #000, 0 1px 2px #000;
+}
+
+.movie {
+   display: flex;
+    flex-direction: column;
+    min-height: 30em;
+    max-height: fit-content;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+#title {
+    margin-top: 4%;
+    width: fit-content;
+    color: white;
+    font-size: 1.4em;
+    margin-left: 46%;
+}
+
+
+
+img {
+    max-width: 200px;
+    max-height: 300px;
+    width: 100%;
+    border-radius: 0 10px 20px;
+}
+
+.contentBox {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.671);
+    min-height: 30em;
+    max-height: fit-content;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.far.fa-check-circle {
+    color: rgb(13, 206, 13);
+}
+
+.fas.fa-times-circle {
+    color: red;
+}
+
+#generalInfo b {
+    color: #212529;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: .75em !important;
+}
+
+#info h2 {
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+
+@media all and (min-width: 1025px) {
+
+    .generalInfo {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+    }
+
+    #firstBlock span:nth-child(n+2) {
+        margin-left: 2%;
+    }
+
+
+    .innerContent {
+        margin-left: 27%;
+        display: flex;
+        flex-direction: row;
+        flex-basis: 50%;
+        flex-wrap: wrap;
+        color: white;
+    }
+
+    #title {
+        margin-left: 27%;
+    }
+
+    #text {
+        word-break: break-word;
+        white-space: pre-wrap;
+    }
+
+    #info {
+
+        margin-left: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 60%;
+        height: fit-content;
+    }
+
+    .content-second {
+        background-color: #eeeeee70;
+        display: flex;
+        flex-direction: row;
+    }
+
+
+
+
+
+    #salesInfo {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 2%;
+        width: 88%;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        background-color: rgba(31, 35, 39, 0.411);
+    }
+
+    #salesInfoDetail {
+        flex-basis: 50%;
+        ;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 2%;
+        padding-left: 17%;
+        width: 100%;
+        text-shadow: none;
+    }
+
+    #salesInfoDetail>b {
+        text-shadow: none;
+        color: white;
+    }
+
+
+    .btn.btn-primary {
+        margin-top: 7%;
+        min-width: 166.66px;
+    }
+}
+
+@media all and (max-width: 539px) {
+    #firstBlock span:nth-child(n+2) {
+        padding-left: 2%;
+    }
+
+    #title {
+        margin-left: 40%;
+    }
+
+    #text {
+        padding-right: 1.9%;
+    }
+
+    .innerContent {
+        margin-left: 4%;
+        display: flex;
+        flex-direction: column;
+        flex-basis: 50%;
+        flex-wrap: wrap;
+        color: white;
+    }
+
+    .innerContent img {
+        margin: auto
+    }
+
+    #info {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    #generalInfo {
+        margin-top: 4%;
+    }
+
+    #salesInfo {
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-left: 4%;
+        margin-bottom: 5%;
+        margin-top: 2%;
+        width: 88%;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        background-color: rgba(31, 35, 39, 0.411);
+    }
+
+    #salesInfo>* {
+        margin: auto;
+    }
+
+    #salesInfo b {
+        color: #f1f7fa;
+    }
+
+    #salesInfoDetail {
+        font-size: large;
+    }
+
+    button {
+        width: 120%;
+        height: 3em;
+        font-size: large;
+        margin-left: -10%;
+        margin-bottom: 5%;
+    }
+}
+
+
+@media all and (min-width: 540px) and (max-width: 1024px) {
+    #firstBlock span:nth-child(n+2) {
+        padding-left: 2%;
+    }
+
+    #text {
+        padding-right: 1.9%;
+        font-size: large;
+    }
+
+    .innerContent {
+        margin-left: 4%;
+        display: flex;
+        flex-direction: column;
+        flex-basis: 50%;
+        flex-wrap: wrap;
+        color: white;
+    }
+
+    .innerContent img {
+        margin: auto
+    }
+
+
+    #info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #generalInfo {
+        margin-top: 4%;
+        font-size: large;
+    }
+
+    #salesInfo {
+        margin-top: 4%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-bottom: 3%;
+        width: 97%;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        background-color: rgba(31, 35, 39, 0.411);
+    }
+
+    #salesInfo>* {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        font-size: large;
+    }
+
+    #salesInfo b {
+        color: #f1f7fa;
+        font-size: large;
+    }
+
+    #salesInfoDetail {
+        font-size: large;
+    }
+
+    button {
+        width: 120%;
+        height: 3em;
+        font-size: large;
+    }
+}
+
+#actors_movieDirectorIMG {
+    width: 10em;
+    height: 14em;
+
+}
+
+#containerMD_A {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: inline-table;
+    max-width: 100%;
+    position: relative;
+    margin-left: 4%;
+    margin-right: 4%;
+    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);*/
+    border-radius: 0 10px 20px;
+    cursor: pointer;
+}
+
+#containerMD_R {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: inline-table;
+    max-width: 100%;
+    position: relative;
+    
+    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);*/
+    border-radius: 0 10px 20px;
+    cursor: pointer;
+}
+
+#name {
+    position: absolute;
+    top: 87%;
+    background-color: rgba(0, 0, 0, 0.568);
+    width: 100%;
+    border-radius: 0 10px 20px;
+    float: right;
+}
+
+h3 {
+    text-shadow: none;
+    color: white;
+    padding-left: 2%;
+    margin-top: 2%;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.bigContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+#addingInformation {
+    display: flex;
+    flex-direction: row;
+}
+
+a {
+    text-shadow: none;
+}
