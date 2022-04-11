@@ -1,0 +1,12 @@
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\bin\Release\net5.0\MovieWorld.EF.deps.json
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\bin\Release\net5.0\MovieWorld.EF.dll
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\bin\Release\net5.0\ref\MovieWorld.EF.dll
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\bin\Release\net5.0\MovieWorld.EF.pdb
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\obj\Release\net5.0\MovieWorld.EF.csproj.AssemblyReference.cache
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\obj\Release\net5.0\MovieWorld.EF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\obj\Release\net5.0\MovieWorld.EF.AssemblyInfoInputs.cache
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\obj\Release\net5.0\MovieWorld.EF.AssemblyInfo.cs
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\obj\Release\net5.0\MovieWorld.EF.csproj.CoreCompileInputs.cache
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\obj\Release\net5.0\MovieWorld.EF.dll
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\obj\Release\net5.0\ref\MovieWorld.EF.dll
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.EF\obj\Release\net5.0\MovieWorld.EF.pdb

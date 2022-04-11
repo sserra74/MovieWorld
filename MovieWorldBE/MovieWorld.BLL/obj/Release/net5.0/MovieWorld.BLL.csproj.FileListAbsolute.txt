@@ -1,0 +1,15 @@
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\bin\Release\net5.0\MovieWorld.BLL.deps.json
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\bin\Release\net5.0\MovieWorld.BLL.dll
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\bin\Release\net5.0\ref\MovieWorld.BLL.dll
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\bin\Release\net5.0\MovieWorld.BLL.pdb
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\bin\Release\net5.0\MovieWorld.EF.dll
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\bin\Release\net5.0\MovieWorld.EF.pdb
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\obj\Release\net5.0\MovieWorld.BLL.csproj.AssemblyReference.cache
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\obj\Release\net5.0\MovieWorld.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\obj\Release\net5.0\MovieWorld.BLL.AssemblyInfoInputs.cache
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\obj\Release\net5.0\MovieWorld.BLL.AssemblyInfo.cs
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\obj\Release\net5.0\MovieWorld.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\obj\Release\net5.0\MovieWorld.BLL.csproj.CopyComplete
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\obj\Release\net5.0\MovieWorld.BLL.dll
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\obj\Release\net5.0\ref\MovieWorld.BLL.dll
+C:\Users\Sergio\source\repos\MovieWorld\MovieWorld.BLL\obj\Release\net5.0\MovieWorld.BLL.pdb

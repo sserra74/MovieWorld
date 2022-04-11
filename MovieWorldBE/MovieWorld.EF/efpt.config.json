@@ -1,0 +1,107 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "ArchiviofilmContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Context",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "MovieWorld.BLL",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Admin]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Buy]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cast]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DeliveryPoint]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Email]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Film]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FilmGenre]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FilmLabel]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Genre]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Label]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Multilingual]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[News]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NewsLabel]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Order]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Realize]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RoleOfCast]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Store]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[User]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "DESKTOP-IQU2FV2\\SQLEXPRESS01.ArchivioFilm",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}
